@@ -11,7 +11,7 @@ import serveur.metier.Salle;
 public class Metier 
 {
 	public static final int PORT = 5600;
-	public static final String SERVEUR = "di-722-09";
+	public static final String SERVEUR = "localhost";
 	
 	private Client client;
 	

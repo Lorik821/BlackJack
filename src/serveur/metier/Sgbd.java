@@ -12,18 +12,18 @@ public class Sgbd {
 	public Connection conn;
 	
 	public Sgbd() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
+		/*Class.forName("oracle.jdbc.driver.OracleDriver");
 
 		this.conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "lj140542", "lj140542");
 		/*Statement stmt = conn.createStatement();
 		ResultSet rset = stmt.executeQuery("select * from personne");*/
-	}
+	/*}
 	
 	public void closeConnection() {
 		try {
 			this.conn.close();
 		}
-		catch (SQLException e) { e.printStackTrace(); }
+		catch (SQLException e) { e.printStackTrace(); }*/
 	}
 	
 	
@@ -33,7 +33,7 @@ public class Sgbd {
 	
 	
 	public ArrayList<String> getLogins() {
-		ArrayList<String> retour = new ArrayList<String>();
+		/*ArrayList<String> retour = new ArrayList<String>();
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -43,13 +43,16 @@ public class Sgbd {
 			}
 		}
 		catch(SQLException e) { System.out.println("Erreur lors de la recuperation des logins"); }
-		
+		*/
+		ArrayList<String> retour = new ArrayList<String>();
+		retour.add("client1");
+		retour.add("client2");
 		return retour;
 	}
 	
 	public String getPass(String login) {
 		String retour = "";
-		
+		/*
 		try {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("select * from utilisateur where login = '" + login + "'");
@@ -58,12 +61,13 @@ public class Sgbd {
 			}
 		}
 		catch(SQLException e) { System.out.println("Erreur lors de la recuperation du mdp de " + login); }
-		
+		*/
+		retour ="password";
 		return retour;
 	}
 	
 	public int getCredits(String login) {
-		int retour = 0;
+		/*int retour = 0;
 		
 		try {
 			Statement stmt = conn.createStatement();
@@ -73,41 +77,42 @@ public class Sgbd {
 			}
 		}
 		catch(SQLException e) { System.out.println("Erreur lors de la recuperation des credits de " + login); }
-		
-		
+		*/
+		int retour = 500;
 		return retour;
 	}
 	
 	public boolean insertNewUser(String login, String pass, int credits) { 
-		try {
+		/*try {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("insert into utilisateur values('" + login + "','" + pass + "'," + credits +")");
 			return true;
 		}
-		catch(SQLException e) { return false;}
+		catch(SQLException e) { return false;}*/
+		return false;
 	}
 	
 	public void updateCredit(String login, int credits) {
-		try {
+		/*try {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("update utilisateur set credit = " + credits + " where login = '" + login + "'");
 		}
-		catch(SQLException e) { System.out.println("Erreur lors de la maj des credit de " + login);}
+		catch(SQLException e) { System.out.println("Erreur lors de la maj des credit de " + login);}*/
 	}
 	
 	public void updatePass(String login, String pass) {
-		try {
+		/*try {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("update utilisateur set pass = '" + pass + "' where login = '" + login + "'");
 		}
-		catch(SQLException e) { System.out.println("Erreur lors de la maj du mdp de " + login);}
+		catch(SQLException e) { System.out.println("Erreur lors de la maj du mdp de " + login);}*/
 	}
 	
 	public void deleteUser(String login) {
-		try {
+		/*try {
 			Statement stmt = conn.createStatement();
 			ResultSet rset = stmt.executeQuery("delete utilisateur where login = '" + login + "'");
 		}
-		catch(SQLException e) { System.out.println("Erreur lors de la suppression de " + login);}
+		catch(SQLException e) { System.out.println("Erreur lors de la suppression de " + login);}*/
 	}
 }
